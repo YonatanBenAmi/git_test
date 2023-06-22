@@ -1,3 +1,4 @@
+
 king_black, king_white = chr(0x2654), chr(0x265A)
 queen_black, queen_white = chr(0x2655), chr(0x265B)
 rook_black, rook_white = chr(0x2656), chr(0x265C)
