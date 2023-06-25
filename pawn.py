@@ -1,12 +1,15 @@
-from classsim import ChessCharacter
+class Pawn:
+    def __init__(self, row, col, unicode):
+        self.row = row
+        self.col = col
+        self.unicode = unicode
 
+    def get_row(self):
+        return self.row
 
-class Pawn(ChessCharacter):
-    def __init__(self, promotion):
-        self.__promotion = promotion
+    def get_col(self):
+        return self.col
 
-    def steps(self):
-        pass
+    def get_unicode(self):
+        return self.unicode
 
-    def castling(self):
-        pass
