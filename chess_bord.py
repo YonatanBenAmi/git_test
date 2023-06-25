@@ -15,7 +15,7 @@ class chess_board:
         tav = chr(11055)
 
         array = [
-                    ['⓵', '⓵', '⓶', '⓷', '⓸', '⓹', '⓺', '⓻', '⓼'],
+                    [' ', '１', '２', '３', '４', '５', '６', '７', '８'],
                     ['A', tav, tav, tav, tav, tav, tav, tav, tav],
                     ['B', tav, tav, tav, tav, tav, tav, tav, tav],
                     ['C', tav, tav, tav, tav, tav, tav, tav, tav],
