@@ -1,4 +1,4 @@
-class chess_board:
+class Chess_board:
 
     def __init__(self):
         self._pices = []
@@ -14,8 +14,7 @@ class chess_board:
         bishop_black, bishop_white = chr(0x2657), chr(0x265D)
         tav = chr(11055)
 
-        array = [
-                    [' ', '１', '２', '３', '４', '５', '６', '７', '８'],
+        array = [   [' ', '１', '２', '３', '４', '５', '６', '７', '８'],
                     ['A', tav, tav, tav, tav, tav, tav, tav, tav],
                     ['B', tav, tav, tav, tav, tav, tav, tav, tav],
                     ['C', tav, tav, tav, tav, tav, tav, tav, tav],
@@ -24,7 +23,6 @@ class chess_board:
                     ['F', tav, tav, tav, tav, tav, tav, tav, tav],
                     ['G', tav, tav, tav, tav, tav, tav, tav, tav],
                     ['H', tav, tav, tav, tav, tav, tav, tav, tav]]
-
 
         dic_line = (2, 7)
         character = chr(0x2659)
@@ -39,12 +37,22 @@ class chess_board:
             self._board= array
         return self._board
 
+
+    def get_board(self):
+        return self._board
     def print_board(self):
         for i in self._board:
             print(*i)
 
-game = chess_board()
-game.create_new_board()
-game.print_board()
 
 
+
+# array = [   [' ', '１', '２', '３', '４', '５', '６', '７', '８'],
+#         #             ['A', tav, tav, tav, tav, tav, tav, tav, tav],
+        #             ['B', tav, tav, tav, tav, tav, tav, tav, tav],
+        #             ['C', tav, tav, tav, tav, tav, tav, tav, tav],
+        #             ['D', tav, tav, tav, tav, tav, tav, tav, tav],
+        #             ['E', tav, tav, tav, tav, tav, tav, tav, tav],
+        #             ['F', tav, tav, tav, tav, tav, tav, tav, tav],
+        #             ['G', tav, tav, tav, tav, tav, tav, tav, tav],
+        #             ['H', tav, tav, tav, tav, tav, tav, tav, tav]]

@@ -6,3 +6,5 @@ class Pawn(ChessCharacter):
         self._status_move = status_move
 
 
+    def steps(self, array):
+        pass
