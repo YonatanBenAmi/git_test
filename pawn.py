@@ -6,12 +6,3 @@ class Pawn(ChessCharacter):
         self._status_move = status_move
 
 
-    def get_row(self):
-        return self.row
-
-    def get_col(self):
-        return self.col
-
-    def get_unicode(self):
-        return self.unicode
-
