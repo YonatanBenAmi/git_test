@@ -1,8 +1,8 @@
-class Pawn:
-    def __init__(self, row, col, unicode):
-        self.row = row
-        self.col = col
-        self.unicode = unicode
+from  classsim import ChessCharacter
+
+
+class Pawn(ChessCharacter):
+    def __init__(self, row, col, unicode, promotion=):
 
     def get_row(self):
         return self.row
