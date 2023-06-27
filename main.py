@@ -1,11 +1,14 @@
+from chess_bord import Chess_board
 from pawn import Pawn
-from chess_bord import ChessBoard
-game = ChessBoard()
-game.create_new_board()
-a = game.get_board()
-pawn = Pawn(2, 2, chr(0x265F))
-pawn.check_mov(3, 3, 5, 4, game.get_board())
+from players import players
+from classsim import ChessCharacter
+from point import point
 
-
-
-
+game = Chess_board()
+game.create_new_board_game_start()
+game.print_board()
+player1 = players([], game.board)
+player1.map_location()
+while True:
+    player1.move_chess_board()
+    player1.print_chess_board()
