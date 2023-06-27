@@ -13,9 +13,13 @@ class King(ChessCharacter):
         white_characters = ['♟', '♞', '♝', '♜', '♛', '♚']
 
         if board[row1][col1].color in white_characters and board[row2][col2].color in white_characters:
+            print('same group')
             return False
         if board[row1][col1].color in black_characters and board[row2][col2].color in black_characters:
+            print('same group')
             return False
         if abs(row1 - row2) <= 1 and abs(col1 - col2) <= 1:
+            print('ok')
             return True
+        print('not ok')
         return False

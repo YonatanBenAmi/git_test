@@ -8,10 +8,14 @@ class Pawn(ChessCharacter):
 
     def __str__(self):
         return self.color
-    def steps(self, array ,user_start):
-        for row in range(1,9):
-            for col in range(1,9):
-                if array[row][col] == type(Pawn) and (row,col) == user_start:
-                    a = array[row][col]
-                    break
-            break
+
+    # def check_steps(self, row1, col1, row2, col2, board):
+    #     black_characters = ['♙', '♘', '♗', '♖', '♕', '♔']
+    #     white_characters = ['♟', '♞', '♝', '♜', '♛', '♚']
+    #
+    #     if board[row1][col1].color in white_characters and board[row2][col2].color in white_characters:
+    #         return False
+    #     if board[row1][col1].color in black_characters and board[row2][col2].color in black_characters:
+    #         return False
+    #     if abs(row1 - row2) == 0 and abs(col1 - col2) == 1 or \
+    #             abs(row1 - row2) == 1 and abs(col1 - col2) == 1 and board[row2][col2].color
