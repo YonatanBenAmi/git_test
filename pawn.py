@@ -1,17 +1,35 @@
 from classsim import ChessCharacter
 from point import Point
+from  tav import Tav
 class Pawn(ChessCharacter):
     def __init__(self,color="", point=Point(), promotion=False, status_move=False):
         super().__init__(color, point)
         self._promotion = promotion
         self._status_move = status_move
 
+
     def __str__(self):
         return self.color
-    def steps(self, array ,user_start):
-        for row in range(1,9):
-            for col in range(1,9):
-                if array[row][col] == type(Pawn) and (row,col) == user_start:
-                    a = array[row][col]
-                    break
-            break
+
+    def check_steps(self, row1, col1, row2, col2, board):
+        black_characters = ['♙', '♘', '♗', '♖', '♕', '♔']
+        white_characters = ['♟', '♞', '♝', '♜', '♛', '♚']
+
+        if board[row1][col1].color in white_characters and board[row2][col2].color in white_characters:
+            return False
+        if board[row1][col1].color in black_characters and board[row2][col2].color in black_characters:
+            return False
+
+        # condition for black
+        if board[row1][col1].color == chr(0x2659):
+            if board[row2][col2].color != chr(11055) and row1 - row2 == -1 and abs(col1 -col2) == 1:
+                return True
+            elif row1 - row2 == -1 and col1 - col2 == 0 and board[row2][col2].color == chr(11055):
+                return True
+        #condition for white
+        elif board[row1][col1].color == chr(0x265F):
+            if board[row2][col2].color != chr(11055) and row1 - row2 == 1 and abs(col1 - col2) == 1:
+                return True
+            elif row1 - row2 == 1 and col1 - col2 == 0 and board[row2][col2].color == chr(11055):
+                return True
+

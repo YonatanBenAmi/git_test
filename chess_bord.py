@@ -63,7 +63,7 @@ class Chess_board:
             rook_white, bishop_white, knight_white, queen_white, king_white, knight_white, bishop_white, rook_white
 
     def create_new_board_game_start(self):
-        tav = chr(11055)
+        tav = Tav(chr(11055))
         self.board = [[' ', '１', '２', '３', '４', '５', '６', '７', '８']]
         iner_list = []
         letter = "A"
