@@ -7,11 +7,17 @@ class Queen(ChessCharacter):
         return self.color
 
 
-    # def check_steps(self, row1, col1, row2, col2):
-    #     if abs(row1 - row2) == abs(col1 - col2) or  == x2 or y1 == y2:
-    #         print('YES')
-    #     else:
-    #         print('NO')
+    def check_steps(self, row1, col1, row2, col2, board):
+        black_characters = ['♙', '♘', '♗', '♖', '♕', '♔']
+        white_characters = ['♟', '♞', '♝', '♜', '♛', '♚']
+
+        if board[row1][col1].color in white_characters and board[row2][col2].color in white_characters:
+            return False
+        if board[row1][col1].color in black_characters and board[row2][col2].color in black_characters:
+            return False
+        if abs(row1 - row2) == abs(col1 - col2) or row1 == row2 or col1 == col2:
+            return True
+        return False
 
 
 
