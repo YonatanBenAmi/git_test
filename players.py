@@ -4,7 +4,7 @@ class Players:
         self.chess_board = chess_board
         self.map_squrs = map_squrs
 
-    def map_location(self, chess_board=[]):
+    def map_location(self):
         self.map_squrs = {}
         leter = "a"
         for row in range(1, 9):
@@ -18,17 +18,20 @@ class Players:
 
     def move_chess_board(self):
         while True:
-            a = input("pick from squar ")
+            a = input("pick from square ")
             if a in self.map_squrs:
-                b = input("pick to squar ")
+                b = input("pick to square ")
                 if b in self.map_squrs:
-                    print("wright corrdinations \n")
+                    # print("wright corrdinations \n")
                     a = list(self.map_squrs[a])
                     b = list(self.map_squrs[b])
 
-                    self.chess_board[int(b[0])][int(b[1])] = self.chess_board[int(a[0])][int(a[1])]
-                    self.chess_board[int(a[0])][int(a[1])] = chr(11055)
-                    break
+                    if self.chess_board[a[0]][a[1]].check_steps(a[0], a[1], b[0], b[1]):
+                        self.chess_board[int(b[0])][int(b[1])] = self.chess_board[int(a[0])][int(a[1])]
+                        self.chess_board[int(a[0])][int(a[1])] = chr(11055)
+                        break
+                    else:
+                        print('worng cordinatins')
             else:
                 print("worng cordination")
 
@@ -37,7 +40,8 @@ class Players:
             print(*self.chess_board[col])
         print()
 
-#
-# a = players()
+
+# a = Players()
 # a.map_location()
+# print(a.map_squrs)
 # a.move_chess_board()

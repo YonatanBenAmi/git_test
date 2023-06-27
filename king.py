@@ -8,8 +8,12 @@ class King(ChessCharacter):
     def __str__(self):
         return self.color
 
-    def check_steps(self):
+    def check_steps(self, row1, col1, row2, col2):
+        return abs(row1 - row2) <= 1 and abs(col1 - col2) <= 1
+
+    def check_two_places_same_group(self, row1, col1, row2, col2):
         pass
+
 
 
 
