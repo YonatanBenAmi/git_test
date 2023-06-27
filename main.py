@@ -3,7 +3,6 @@ from pawn import Pawn
 from players import Players
 from classsim import ChessCharacter
 from point import Point
-
 game = Chess_board()
 game.create_new_board_game_start()
 game.print_board()

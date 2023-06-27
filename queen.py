@@ -7,6 +7,13 @@ class Queen(ChessCharacter):
         return self.color
 
 
+    # def check_steps(self, row1, col1, row2, col2):
+    #     if abs(row1 - row2) == abs(col1 - col2) or  == x2 or y1 == y2:
+    #         print('YES')
+    #     else:
+    #         print('NO')
+
+
 
 
 

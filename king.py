@@ -9,10 +9,15 @@ class King(ChessCharacter):
         return self.color
 
     def check_steps(self, row1, col1, row2, col2):
+        white_cherecters = ['♙', '♕', '♔', '♗', '♘', '♖']
+        black_cherecters = ['♟', '♛', '♚', '♝', '♞', '♜']
+        if self.color in white_cherecters:
+            print("i am white")
+
         return abs(row1 - row2) <= 1 and abs(col1 - col2) <= 1
 
-    def check_two_places_same_group(self, row1, col1, row2, col2):
-        pass
+    # def check_two_places_same_group(self, row1, col1, row2, col2):
+    #     pass
 
 
 
