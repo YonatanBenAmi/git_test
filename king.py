@@ -1,13 +1,15 @@
 from classsim import ChessCharacter
-from point import point
+from point import Point
 class King(ChessCharacter):
-    def __init__(self,color="", point=point(),status_move=False):
+    def __init__(self,color="", point=Point(),status_move=False):
         super().__init__(color, point)
         self._status_move = status_move
 
     def __str__(self):
         return self.color
 
+    def check_steps(self):
+        pass
 
 
 

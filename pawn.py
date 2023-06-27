@@ -1,7 +1,7 @@
 from classsim import ChessCharacter
-from point import point
+from point import Point
 class Pawn(ChessCharacter):
-    def __init__(self,color="", point=point(), promotion=False, status_move=False):
+    def __init__(self,color="", point=Point(), promotion=False, status_move=False):
         super().__init__(color, point)
         self._promotion = promotion
         self._status_move = status_move

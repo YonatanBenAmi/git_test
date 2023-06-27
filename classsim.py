@@ -1,10 +1,10 @@
 
 
-from point import point
+from point import Point
 
 
 class ChessCharacter:
-        def __init__(self, color, point=point()):
+        def __init__(self, color, point=Point()):
                 self.point = point
                 self.color = color
 

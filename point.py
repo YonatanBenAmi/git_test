@@ -1,6 +1,5 @@
-class point():
-
-    def __inti__(self, row, col ):
+class Point():
+    def __init__(self, row=1, col=1):
        self.row = row
        self.col = col
 

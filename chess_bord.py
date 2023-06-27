@@ -86,8 +86,8 @@ class Chess_board:
                     pawn = Pawn(chr(0x265F), (row, col))
                     self.board[row][col] = pawn
 
-        king_black, king_white = King(chr(0x2654)), King(chr(0x265A))
-        queen_black, queen_white = Queen(chr(0x2655)), Queen(chr(0x265B))
+        king_black, king_white = King('♔'), King('♚')
+        queen_black, queen_white = Queen('♕'), Queen('♛')
         rook_black, rook_white = Rook(chr(0x2656)), Rook(chr(0x265C))
         knight_black, knight_white = Knight(chr(0x2658)), Knight(chr(0x265E))
         bishop_black, bishop_white = Bishop(chr(0x2657)), Bishop(chr(0x265D))

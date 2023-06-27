@@ -1,5 +1,5 @@
-from  chess_bord import Chess_board
-class players:
+from chess_bord import Chess_board
+class Players:
     def __init__(self,map_squrs={},chess_board=Chess_board()):
         self.chess_board = chess_board
         self.map_squrs = map_squrs
@@ -18,16 +18,14 @@ class players:
 
     def move_chess_board(self):
         while True:
-            print("pick from squar")
-            a = input()
+            a = input("pick from squar ")
             if a in self.map_squrs:
-                print("pick to squar")
-                b = input()
+                b = input("pick to squar ")
                 if b in self.map_squrs:
-                    print("wright corrdinations")
+                    print("wright corrdinations \n")
                     a = list(self.map_squrs[a])
                     b = list(self.map_squrs[b])
-                    print(a,b)
+
                     self.chess_board[int(b[0])][int(b[1])] = self.chess_board[int(a[0])][int(a[1])]
                     self.chess_board[int(a[0])][int(a[1])] = chr(11055)
                     break
