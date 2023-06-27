@@ -1,5 +1,5 @@
 from chess_bord import Chess_board
-from king import King
+from tav import Tav
 class Players:
     def __init__(self,map_squrs={},chess_board=Chess_board()):
         self.chess_board = chess_board
@@ -29,7 +29,7 @@ class Players:
 
                     if  self.chess_board[a[0]][a[1]].check_steps(a[0], a[1], b[0], b[1], self.chess_board):
                         self.chess_board[int(b[0])][int(b[1])] = self.chess_board[int(a[0])][int(a[1])]
-                        self.chess_board[int(a[0])][int(a[1])] = chr(11055)
+                        self.chess_board[int(a[0])][int(a[1])] = Tav(chr(11055))
                         break
                     else:
                         print('worng cordinatins')
