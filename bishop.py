@@ -2,5 +2,6 @@ from classsim import ChessCharacter
 
 
 class Bishop(ChessCharacter):
-    def steps(self):
-        pass
+    def __str__(self):
+        return self.color
+

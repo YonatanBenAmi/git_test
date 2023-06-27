@@ -1,24 +1,23 @@
 
+
+from point import point
+
+
 class ChessCharacter:
-        def __init__(self, row=0, col=0, unicode=0):
-                self.row = row
-                self.col = col
-                self.unicode = unicode
+        def __init__(self, color, point=point()):
+                self.point = point
+                self.color = color
 
-        def get_row(self):
-                return self.row
+        def get_point(self):
+                return self.point
 
-        def get_col(self):
-                return self.col
 
-        def get_unicode(self):
-                return self.unicode
 
-        def check_steps(self, row, col):
-                self.row = row
-                self.col = col
+        def check_steps(self):
+                if (self.point.row < 9 or self.point.row > 0) and (self.point.col < 9 or self.point.col > 0):
+                        return True
+                return False
 
-                if (self.row > 8 or self.row < 1) and (self.col > 8 or self.col < 1):
-                        return False
-                return True
+
+
 
