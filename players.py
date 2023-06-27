@@ -26,7 +26,7 @@ class Players:
                     a = list(self.map_squrs[a])
                     b = list(self.map_squrs[b])
 
-                    if self.chess_board[a[0]][a[1]].check_steps(a[0], a[1], b[0], b[1]):
+                    if self.chess_board[a[0]][a[1]].check_steps(a[0], a[1], b[0], b[1], self.chess_board):
                         self.chess_board[int(b[0])][int(b[1])] = self.chess_board[int(a[0])][int(a[1])]
                         self.chess_board[int(a[0])][int(a[1])] = chr(11055)
                         break
