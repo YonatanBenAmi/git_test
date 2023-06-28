@@ -14,8 +14,8 @@ class Knight(ChessCharacter):
             return False
         if board[row1][col1].color in black_characters and board[row2][col2].color in black_characters:
             return False
-        drow = abs(row1 - row2)
-        dcol = abs(col1 - col2)
-        if drow == 1 and dcol == 2 or drow == 2 and dcol == 1:
+        d_row = abs(row1 - row2)
+        d_col = abs(col1 - col2)
+        if d_row == 1 and d_col == 2 or d_row == 2 and d_col == 1:
             return True
         return False
