@@ -1,7 +1,7 @@
 from chess_bord import Chess_board
 from tav import Tav
 class Players:
-    def __init__(self,map_squrs={},chess_board=Chess_board(), turn="white"):
+    def __init__(self,chess_board=Chess_board(), turn="white", map_squrs={}):
         self.chess_board = chess_board
         self.map_squrs = map_squrs
         self.turn = turn
