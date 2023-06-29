@@ -8,7 +8,7 @@ game.create_new_board_game_start()
 # game.create_new_board()
 # game.fill_in_all_chrecters()
 game.print_board()
-player1 = Players([], game.boardb)
+player1 = Players([], game.board)
 player1.map_location()
 while True:
     player1.move_chess_board()
