@@ -1,7 +1,9 @@
 from classsim import ChessCharacter
 from point import Point
+
+
 class King(ChessCharacter):
-    def __init__(self,color="", point=Point(),status_move=False):
+    def __init__(self, color="", point=Point(), status_move=False):
         super().__init__(color, point)
         self._status_move = status_move
 
@@ -22,6 +24,11 @@ class King(ChessCharacter):
             self._status_move = True
 
             print('ok')
+            self.status_move = True
             return True
         print('not ok')
         return False
+
+    def if_king_dead(self):
+        pass
+
