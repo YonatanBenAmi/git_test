@@ -7,14 +7,14 @@ class Players:
         self.turn = turn
     def map_location(self):
         self.map_squrs = {}
-        leter = "a"
+        letter = "a"
         for row in range(1, 9):
             for col in range(1, 9):
-                self.map_squrs[leter+str(col)] = (row, col)
-            leter = ord(leter)
+                self.map_squrs[letter+str(col)] = (row, col)
+            letter = ord(letter)
 
-            leter += 1
-            leter = chr(leter)
+            letter += 1
+            letter = chr(letter)
 
 
     def move_chess_board(self):
@@ -40,13 +40,13 @@ class Players:
                                 self.turn = "white"
                                 break
                         else:
-                            print('1worng cordinatins')
+                            print("wrong coordination you can't perform this action")
                     else:
-                        print("2worng cordination")
+                        print("wrong  coordination You must choose your own tools ")
                 else:
-                    print("3worng cordination")
+                    print("wrong  coordination the second square you pick isn't on board")
             else:
-                print("4worng cordination")
+                print("wrong  coordination the first square you pick isn't on board")
 
 
     def print_chess_board(self):

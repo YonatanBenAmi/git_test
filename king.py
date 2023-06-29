@@ -19,6 +19,8 @@ class King(ChessCharacter):
             print('same group')
             return False
         if abs(row1 - row2) <= 1 and abs(col1 - col2) <= 1:
+            self._status_move = True
+
             print('ok')
             return True
         print('not ok')
