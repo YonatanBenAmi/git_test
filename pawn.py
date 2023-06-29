@@ -22,12 +22,18 @@ class Pawn(ChessCharacter):
 
         # condition for black
         if board[row1][col1].color == chr(0x2659):
+            if board[row2][col2].color == chr(11055) and row1 - row2 == -2 and col1 - col2 == 0 and self._status_move == False:
+                self._status_move = True
+                return True
             if board[row2][col2].color != chr(11055) and row1 - row2 == -1 and abs(col1 -col2) == 1:
                 return True
             elif row1 - row2 == -1 and col1 - col2 == 0 and board[row2][col2].color == chr(11055):
                 return True
         #condition for white
         elif board[row1][col1].color == chr(0x265F):
+            if board[row2][col2].color == chr(11055) and row1 - row2 == 2 and col1 - col2 == 0 and self._status_move == False:
+                self._status_move = True
+                return True
             if board[row2][col2].color != chr(11055) and row1 - row2 == 1 and abs(col1 - col2) == 1:
                 return True
             elif row1 - row2 == 1 and col1 - col2 == 0 and board[row2][col2].color == chr(11055):
