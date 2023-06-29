@@ -5,7 +5,7 @@ from queen import Queen
 from bishop import Bishop
 from rook import Rook
 from tav import Tav
-# from colorsys import
+# from colorama import
 class Chess_board:
 
     def __init__(self, pices=[], board=[]):
