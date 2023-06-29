@@ -1,10 +1,10 @@
 from chess_bord import Chess_board
 from tav import Tav
 class Players:
-    def __init__(self,map_squrs={},chess_board=Chess_board()):
+    def __init__(self,map_squrs={},chess_board=Chess_board(), turn="white"):
         self.chess_board = chess_board
         self.map_squrs = map_squrs
-
+        self.turn = turn
     def map_location(self):
         self.map_squrs = {}
         leter = "a"
@@ -26,15 +26,28 @@ class Players:
                     # print("wright corrdinations \n")
                     a = list(self.map_squrs[a])
                     b = list(self.map_squrs[b])
-
-                    if  self.chess_board[a[0]][a[1]].check_steps(a[0], a[1], b[0], b[1], self.chess_board):
-                        self.chess_board[int(b[0])][int(b[1])] = self.chess_board[int(a[0])][int(a[1])]
-                        self.chess_board[int(a[0])][int(a[1])] = Tav(chr(11055))
-                        break
+                    black_characters = ['♙', '♘', '♗', '♖', '♕', '♔']
+                    white_characters = ['♟', '♞', '♝', '♜', '♛', '♚']
+                    if (self.turn == "white" and self.chess_board[a[0]][a[1]].color in white_characters)\
+                         or  (self.turn == "black" and self.chess_board[a[0]][a[1]].color in black_characters):
+                        if  self.chess_board[a[0]][a[1]].check_steps(a[0], a[1], b[0], b[1], self.chess_board):
+                            self.chess_board[int(b[0])][int(b[1])] = self.chess_board[int(a[0])][int(a[1])]
+                            self.chess_board[int(a[0])][int(a[1])] = Tav(chr(11055))
+                            if self.turn == "white":
+                                self.turn = "black"
+                                break
+                            elif self.turn == "black":
+                                self.turn = "white"
+                                break
+                        else:
+                            print('1worng cordinatins')
                     else:
-                        print('worng cordinatins')
+                        print("2worng cordination")
+                else:
+                    print("3worng cordination")
             else:
-                print("worng cordination")
+                print("4worng cordination")
+
 
     def print_chess_board(self):
         for col in range(0, 9):
@@ -46,3 +59,7 @@ class Players:
 # a.map_location()
 # print(a.map_squrs)
 # a.move_chess_board()
+
+
+# and self.chess_board[a[0]][a[1]] in white_characters)
+# and self.chess_board[a[0]][a[1]] in black_characters
