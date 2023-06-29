@@ -35,3 +35,20 @@ class Rook(ChessCharacter):
             self._status_move = True
         return True
 
+    def castling(self, king, rook, board):
+        # Checking if the king and rook are in the same row and have the same color
+        if king.point.row != rook.point.row or king.color != rook.color:
+            print("Invalid move. The king and rook must be in the same row and have the same color.")
+            return False
+        # Checking if the king and rook haven't moved before
+        if king.status_move or rook.status_move:
+            print("Invalid move. The king and rook must not have moved before.")
+            return False
+        # Checking if there are no other pieces between the king and rook
+        for col in range(king.point.col + 1, rook.point.col):
+            if board[king.point.row][col] != chr(11055):
+                print("Invalid move. There are pieces between the king and rook.")
+                return False
+        # If all conditions are met, the castling move is valid
+        print("Valid castling move!")
+        return True
