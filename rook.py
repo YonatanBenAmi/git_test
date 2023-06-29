@@ -1,5 +1,5 @@
 from classsim import ChessCharacter
-from tav import  Tav
+
 
 class Rook(ChessCharacter):
     def __str__(self):
@@ -13,26 +13,21 @@ class Rook(ChessCharacter):
             return False
         if board[row1][col1].color in black_characters and board[row2][col2].color in black_characters:
             return False
+
         d_row = abs(row1 - row2)
         d_col = abs(col1 - col2)
-        jmp_steps = 0
 
         if d_row == 0 and d_col > 0:
-            if col1 > col2:
-                jmp_steps = -1
-            else:
-                jmp_steps = 1
+            jmp_steps = -1 if col1 > col2 else 1
             for check in range(col1 + jmp_steps, col2, jmp_steps):
                 if board[row1][check].color != chr(11055):
                     return False
-            return True
+
         elif d_col == 0 and d_row > 0:
-            if row1 > row2:
-                jmp_steps = -1
-            else:
-                jmp_steps = 1
+            jmp_steps = -1 if row1 > row2 else 1
             for check in range(row1 + jmp_steps, row2, jmp_steps):
                 if board[check][col1].color != chr(11055):
                     return False
 
-            return True
+        return True
+
