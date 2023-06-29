@@ -43,7 +43,7 @@ class Pawn(ChessCharacter):
             #walk condition
             elif row1 - row2 == -1 and col1 - col2 == 0 and board[row2][col2].color == chr(11055):
                 if row2 == 8:
-                    blak_prmotion = [Queen, Knight, Rook, Bishop]
+                    blak_prmotion = [Queen('♕'), Knight(chr(0x2658)), Rook(chr(0x2656)), Bishop(chr(0x2657))]
                     for i in range(4):
                         print(i + 1, blak_prmotion[i])
                     choise = int(input("choose premotion"))
@@ -59,7 +59,7 @@ class Pawn(ChessCharacter):
             # eat condition
             if board[row2][col2].color != chr(11055) and row1 - row2 == 1 and abs(col1 - col2) == 1:
                 if row2 == 1:
-                    blak_prmotion = [Queen('♕'), Knight(chr(0x2658)), Rook(chr(0x2656)), Bishop(chr(0x2657))]
+                    blak_prmotion = [Queen('♛'), Knight(chr(0x265E)), Rook(chr(0x265C)), Bishop(chr(0x265D))]
                     for i in range(4):
                         print(i + 1, blak_prmotion[i])
                     choise = int(input("choose premotion"))
@@ -75,3 +75,6 @@ class Pawn(ChessCharacter):
                     board[row1][col1] = white_prmotion[choise - 1]
                 return True
 
+# blak_prmotion = [Queen('♕'), Knight(chr(0x2658)), Rook(chr(0x2656)), Bishop(chr(0x2657))]
+# for i in range(4):
+#     print(i + 1, blak_prmotion[i])

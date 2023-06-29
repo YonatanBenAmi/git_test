@@ -62,6 +62,17 @@ class Chess_board:
         self.board[8][7], self.board[8][8] = \
             rook_white, bishop_white, knight_white, queen_white, king_white, knight_white, bishop_white, rook_white
 
+    def fill_what_you_want(self):
+        king_black, king_white = King('♔'), King('♚')
+        queen_black, queen_white = Queen('♕'), Queen('♛')
+        rook_black, rook_white = Rook(chr(0x2656)), Rook(chr(0x265C))
+        knight_black, knight_white = Knight(chr(0x2658)), Knight(chr(0x265E))
+        bishop_black, bishop_white = Bishop(chr(0x2657)), Bishop(chr(0x265D))
+        self.board[2][1], self.board[2][2], self.board[2][3], self.board[2][4], self.board[2][5], self.board[2][6], \
+        self.board[2][7], self.board[2][8] =  Pawn(chr(0x265F), (0, 0)),Pawn(chr(0x265F), (0, 0)),Pawn(chr(0x265F), (0, 0)),Pawn(chr(0x265F), (0, 0)),Pawn(chr(0x265F), (0, 0)),Pawn(chr(0x265F), (0, 0)),Pawn(chr(0x265F), (0, 0)),Pawn(chr(0x265F), (0, 0))
+        self.board[7][1], self.board[7][2], self.board[7][3], self.board[7][4], self.board[7][5], self.board[7][6], \
+            self.board[7][7], self.board[7][8] = Pawn(chr(0x2659),(0,0)),Pawn(chr(0x2659),(0,0)),Pawn(chr(0x2659),(0,0)),Pawn(chr(0x2659),(0,0)),Pawn(chr(0x2659),(0,0)),Pawn(chr(0x2659),(0,0)),Pawn(chr(0x2659),(0,0)),Pawn(chr(0x2659),(0,0))
+
     def create_new_board_game_start(self):
         tav = Tav(chr(11055))
         self.board = [[' ', '１', '２', '３', '４', '５', '６', '７', '８']]
