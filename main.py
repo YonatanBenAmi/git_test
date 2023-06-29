@@ -12,17 +12,3 @@ while True:
     player1.move_chess_board()
     player1.print_chess_board()
 
-
-
-
-# chack for promotion
-
-# game = Chess_board()
-# game.create_new_board()
-# game.fill_what_you_want()
-# players = Players([],game.board)
-# players.map_location()
-# players.print_chess_board()
-# while True:
-#     players.move_chess_board()
-#     players.print_chess_board()
