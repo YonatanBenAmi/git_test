@@ -16,7 +16,6 @@ class Players:
             letter += 1
             letter = chr(letter)
 
-
     def move_chess_board(self):
         while True:
             a = input("pick from square ")
