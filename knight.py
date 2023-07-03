@@ -19,3 +19,5 @@ class Knight(ChessCharacter):
         if d_row == 1 and d_col == 2 or d_row == 2 and d_col == 1:
             return True
         return False
+
+

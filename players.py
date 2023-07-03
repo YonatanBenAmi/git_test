@@ -55,6 +55,7 @@ class Players:
         print()
 
 
+
 # a = Players()
 # a.map_location()
 # print(a.map_squrs)

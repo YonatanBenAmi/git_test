@@ -45,5 +45,6 @@ class King(ChessCharacter):
             return True
         return False
 
-
-
+    #
+    # def king_threat(self,board):
+    #     if board[][].color == '♚':
