@@ -13,9 +13,7 @@ while True:
     player1.print_chess_board()
 
 
-
-
-# chack for promotion
+# check for promotion
 
 # game = Chess_board()
 # game.create_new_board()
