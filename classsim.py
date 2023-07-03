@@ -2,7 +2,7 @@ from point import Point
 
 
 class ChessCharacter:
-    def __init__(self, color, point=None):
+    def __init__(self, color="", point=None):
         if point is None:
             self.point = Point()
         else:

@@ -21,12 +21,16 @@ class King(ChessCharacter):
             print('same group')
             return False
         if abs(row1 - row2) <= 1 and abs(col1 - col2) <= 1:
+            if board[row1][col1].color == '♚':
+                for row in range(1, len(board)):
+                    for col in range(1, len(board[row])):
+                        if board[row][col].color in black_characters:
+                            print(board[row][col].color,board[row][col].check_steps(row, col, row2, col2, board))
+                            if board[row][col].check_steps(row, col, row2, col2, board) == False:
+                                print(board[row][col],board[row][col].check_steps(row, col, row2, col2, board))
+                                return False
             self._status_move = True
-
-            print('ok')
-            self.status_move = True
             return True
-        print('not ok')
         return False
 
     def if_king_dead(self):
