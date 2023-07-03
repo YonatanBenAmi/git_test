@@ -20,8 +20,8 @@ class King(ChessCharacter):
         if board[row1][col1].color in black_characters and board[row2][col2].color in black_characters:
             print('same group')
             return False
-        if abs(row1 - row2) <= 1 and abs(col1 - col2) <= 1:
-            if board[row1][col1].color == '♚':
+        if board[row1][col1].color == '♚':
+            if abs(row1 - row2) <= 1 and abs(col1 - col2) <= 1:
                 for row in range(1, len(board)):
                     for col in range(1, len(board[row])):
                         if board[row][col].color in black_characters:
@@ -31,8 +31,19 @@ class King(ChessCharacter):
                                 return False
             self._status_move = True
             return True
+
+        if board[row1][col1].color == '♔':
+            if abs(row1 - row2) <= 1 and abs(col1 - col2) <= 1:
+                for row in range(1, len(board)):
+                    for col in range(1, len(board[row])):
+                        if board[row][col].color in white_characters:
+                            print(board[row][col].color, board[row][col].check_steps(row, col, row2, col2, board))
+                            if board[row][col].check_steps(row, col, row2, col2, board):
+                                print(board[row][col], board[row][col].check_steps(row, col, row2, col2, board))
+                                return False
+            self._status_move = True
+            return True
         return False
 
-    def if_king_dead(self):
-        pass
+
 
