@@ -61,7 +61,7 @@ class Rook(ChessCharacter):
                     return False
 
             return True
-
+        return False
     # def castling(self, king, rook, board):
     #     # Checking if the king and rook are in the same row and have the same color
     #     if king.point.row != rook.point.row or king.color != rook.color:

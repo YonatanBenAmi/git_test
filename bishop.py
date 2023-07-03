@@ -57,3 +57,4 @@ class Bishop(ChessCharacter):
                     return False
 
             return True
+        return False
