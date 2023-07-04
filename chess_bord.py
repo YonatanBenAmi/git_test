@@ -5,11 +5,11 @@ from queen import Queen
 from bishop import Bishop
 from rook import Rook
 from tav import Tav
-# from colorama import
+
 class Chess_board:
 
-    def __init__(self, pices=[], board=[]):
-        self.pices = pices
+    def __init__(self,board=[]):
+
         self.board = board
 
 

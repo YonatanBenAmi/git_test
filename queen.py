@@ -30,7 +30,6 @@ class Queen(ChessCharacter):
                     return False
                 row += jmp_row
                 col += jmp_col
-            return True
         elif d_row == 0 and d_col > 0:
             if col1 > col2:
                 jmp_steps = -1

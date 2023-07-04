@@ -1,6 +1,6 @@
 from chess_bord import Chess_board
 from tav import Tav
-from rook import  Rook
+
 
 
 class Players:
@@ -34,23 +34,29 @@ class Players:
                     white_characters = ['♟', '♞', '♝', '♜', '♛', '♚']
                     if (self.turn == "white" and self.chess_board[a[0]][a[1]].color in white_characters)\
                          or (self.turn == "black" and self.chess_board[a[0]][a[1]].color in black_characters):
+                            if self.king_threat():
+                                if self.chess_board[a[0]][a[1]].check_steps(a[0], a[1], b[0], b[1], self.chess_board):
+                                    self.chess_board[int(b[0])][int(b[1])] = self.chess_board[int(a[0])][int(a[1])]
+                                    self.chess_board[int(a[0])][int(a[1])] = Tav(chr(11055))
+                                    if self.turn == "white":
+                                        self.turn = "black"
+                                        break
+                                    elif self.turn == "black":
+                                        self.turn = "white"
+                                        break
+                            else:
+                                print("your king is in threat")
+                                if self.chess_board[a[0]][a[1]].check_steps(a[0], a[1], b[0], b[1], self.chess_board) and self.king_threat() == True:
+                                    self.chess_board[int(b[0])][int(b[1])] = self.chess_board[int(a[0])][int(a[1])]
+                                    self.chess_board[int(a[0])][int(a[1])] = Tav(chr(11055))
+                                    if self.turn == "white":
+                                        self.turn = "black"
+                                        break
+                                    elif self.turn == "black":
+                                        self.turn = "white"
+                                        break
+                                print("your king still in threat")
 
-                            if self.chess_board[a[0]][a[1]].check_steps(a[0], a[1], b[0], b[1], self.chess_board):
-                                self.chess_board[int(b[0])][int(b[1])] = self.chess_board[int(a[0])][int(a[1])]
-                                self.chess_board[int(a[0])][int(a[1])] = Tav(chr(11055))
-                                if self.turn == "white":
-                                    self.turn = "black"
-                                    break
-                                elif self.turn == "black":
-                                    self.turn = "white"
-                                    break
-
-            # else:
-            #     location_king = print('Enter the king position')
-            #     if location_king == 'a5':
-            #         location_rook = print('Enter the rook position')
-            #         if location_rook == 'a1' or location_rook == 'a8':
-            #             castling()
 
 
     def print_chess_board(self):
@@ -58,39 +64,32 @@ class Players:
             print(*self.chess_board[col])
         print()
 
-    # def king_threat(self, board):
-    #     flag = False
-    #     for row in range(len(board)):
-    #         for col in range(len(row)):
-    #             if self.turn == "white":
-    #                 if board[row][col].color == '♚':
-    #                     king = board[row][col]
-    #                     row1 = row
-    #                     col1 = col
-    #                     flag == True
-    #                     break
-    #             if self.turn == "black":
-    #                 if board[row][col].color == '♔':
-    #                     king = board[row][col]
-    #                     row1 = row
-    #                     col1 = col
-    #                     flag == True
-    #                     break
-    #         if flag:
-    #             break
-    #     for row in range(len(board)):
-    #         for col in range(len(row)):
-    #             if board[row][col].check_steps(row, col,  )
-    #
-    #
+    def king_threat(self):
+        flag = False
+        for row in range(1,len(self.chess_board)):
+            for col in range(1,len(self.chess_board[row])):
+                if self.turn == "white":
+                    if self.chess_board[row][col].color == '♚':
+                        king = self.chess_board[row][col]
+                        row1 = row
+                        col1 = col
+                        flag == True
+                        break
+                if self.turn == "black":
+                    if self.chess_board[row][col].color == '♔':
+                        king = self.chess_board[row][col]
+                        row1 = row
+                        col1 = col
+                        flag == True
+                        break
+            if flag:
+                break
+        for row in range(1,len(self.chess_board)):
+            for col in range(1,len(self.chess_board[row])):
+                if self.chess_board[row][col].check_steps(row, col, row1, col1,self.chess_board):
+                    return False
+        return True
 
 
-
-    # a = Players()
-# a.map_location()
-# print(a.map_squrs)
-# a.move_chess_board()
-
-
-# and self.chess_board[a[0]][a[1]] in white_characters)
-# and self.chess_board[a[0]][a[1]] in black_characters
+    def is_end_game(self):
+        pass
