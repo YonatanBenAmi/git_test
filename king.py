@@ -21,9 +21,9 @@ class King(ChessCharacter):
             print('same group')
             return False
         if board[row1][col1].color == '♚':
-            print("1")
+
             if abs(row1 - row2) <= 1 and abs(col1 - col2) <= 1:
-                print("2")
+
                 for row in range(1, len(board)):
                     for col in range(1, len(board[row])):
                         if board[row][col].color in black_characters:
