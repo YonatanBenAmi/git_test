@@ -7,7 +7,8 @@ class Queen(ChessCharacter):
         return self.color
 
     def check_steps(self, row1, col1, row2, col2, board):
-        super().check_steps(row1, col1, row2, col2, board)
+        if not super().check_steps(row1, col1, row2, col2, board):
+            return False
 
         d_row = abs(row1 - row2)
         d_col = abs(col1 - col2)

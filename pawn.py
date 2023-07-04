@@ -16,7 +16,8 @@ class Pawn(ChessCharacter):
         return self.color
 
     def check_steps(self, row1, col1, row2, col2, board):
-        super().check_steps( row1, col1, row2, col2, board)
+        if not super().check_steps(row1, col1, row2, col2, board):
+            return False
 
         # condition for black
         if board[row1][col1].color == chr(0x2659):

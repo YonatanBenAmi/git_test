@@ -42,6 +42,10 @@ class Players:
                                     elif self.turn == "black":
                                         self.turn = "white"
                                         break
+                                else:
+                                     print("you cant perform this action")
+
+
                             else:
                                 print("your king is in threat")
                                 if self.chess_board[a[0]][a[1]].check_steps(a[0], a[1], b[0], b[1], self.chess_board) and self.king_threat() == True:

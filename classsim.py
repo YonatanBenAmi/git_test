@@ -13,5 +13,5 @@ class ChessCharacter:
             return False
         if board[row1][col1].color in black_characters and board[row2][col2].color in black_characters:
             return False
-
+        return True
 
