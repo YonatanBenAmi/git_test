@@ -6,13 +6,7 @@ class Bishop(ChessCharacter):
         return self.color
 
     def check_steps(self, row1, col1, row2, col2, board):
-        black_characters = ['♙', '♘', '♗', '♖', '♕', '♔']
-        white_characters = ['♟', '♞', '♝', '♜', '♛', '♚']
-
-        if board[row1][col1].color in white_characters and board[row2][col2].color in white_characters:
-            return False
-        if board[row1][col1].color in black_characters and board[row2][col2].color in black_characters:
-            return False
+        super().check_steps(row1, col1, row2, col2, board)
 
         d_row = abs(row1 - row2)
         d_col = abs(col1 - col2)

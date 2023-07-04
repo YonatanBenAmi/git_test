@@ -3,8 +3,8 @@ from point import Point
 
 
 class King(ChessCharacter):
-    def __init__(self, color="", point=Point(), status_move=False):
-        super().__init__(color, point)
+    def __init__(self, color="", status_move=False):
+        super().__init__(color)
         self._status_move = status_move
 
     def __str__(self):

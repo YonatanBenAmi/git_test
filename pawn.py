@@ -6,8 +6,8 @@ from knight import Knight
 from rook import Rook
 from bishop import Bishop
 class Pawn(ChessCharacter):
-    def __init__(self,color="", point=Point(), promotion=False, status_move=False):
-        super().__init__(color, point)
+    def __init__(self,color="",  promotion=False, status_move=False):
+        super().__init__(color)
         self._promotion = promotion
         self._status_move = status_move
 
@@ -16,13 +16,7 @@ class Pawn(ChessCharacter):
         return self.color
 
     def check_steps(self, row1, col1, row2, col2, board):
-        black_characters = ['♙', '♘', '♗', '♖', '♕', '♔']
-        white_characters = ['♟', '♞', '♝', '♜', '♛', '♚']
-
-        if board[row1][col1].color in white_characters and board[row2][col2].color in white_characters:
-            return False
-        if board[row1][col1].color in black_characters and board[row2][col2].color in black_characters:
-            return False
+        super().check_steps( row1, col1, row2, col2, board)
 
         # condition for black
         if board[row1][col1].color == chr(0x2659):

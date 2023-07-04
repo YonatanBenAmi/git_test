@@ -2,18 +2,16 @@ from point import Point
 
 
 class ChessCharacter:
-    def __init__(self, color="", point=None):
-        if point is None:
-            self.point = Point()
-        else:
-            self.point = point
+    def __init__(self, color=""):
         self.color = color
 
-    # def check_steps(self):
-    #         if (self.point.row < 9 or self.point.row > 0) and (self.point.col < 9 or self.point.col > 0):
-    #                 return True
-    #         return False
-    #
+    def check_steps(self, row1, col1, row2, col2, board):
+        black_characters = ['♙', '♘', '♗', '♖', '♕', '♔']
+        white_characters = ['♟', '♞', '♝', '♜', '♛', '♚']
 
-    # def get_point(self):
-    #         return self.point
+        if board[row1][col1].color in white_characters and board[row2][col2].color in white_characters:
+            return False
+        if board[row1][col1].color in black_characters and board[row2][col2].color in black_characters:
+            return False
+
+

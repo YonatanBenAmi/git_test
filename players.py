@@ -16,14 +16,12 @@ class Players:
             for col in range(1, 9):
                 self.map_squrs[letter+str(col)] = (row, col)
             letter = ord(letter)
-
             letter += 1
             letter = chr(letter)
 
     def move_chess_board(self):
         while True:
-            a = input("pick from square or '1' in the screeching goat ")
-            # if a != '1':
+            a = input("pick from square ")
             if a in self.map_squrs:
                 b = input("pick to square ")
                 if b in self.map_squrs:
@@ -49,14 +47,19 @@ class Players:
                                 if self.chess_board[a[0]][a[1]].check_steps(a[0], a[1], b[0], b[1], self.chess_board) and self.king_threat() == True:
                                     self.chess_board[int(b[0])][int(b[1])] = self.chess_board[int(a[0])][int(a[1])]
                                     self.chess_board[int(a[0])][int(a[1])] = Tav(chr(11055))
-                                    if self.turn == "white":
-                                        self.turn = "black"
-                                        break
-                                    elif self.turn == "black":
-                                        self.turn = "white"
-                                        break
-                                print("your king still in threat")
-
+                                    if self.king_threat() == True:
+                                        if self.turn == "white":
+                                            self.turn = "black"
+                                            break
+                                        else:
+                                            self.turn = "white"
+                                            break
+                                    else:
+                                        print("your king still in threat")
+                                        self.chess_board[int(a[0])][int(a[1])] =  self.chess_board[int(b[0])][int(b[1])]
+                                        self.chess_board[int(a[0])][int(a[1])] = Tav(chr(11055))
+                    else:
+                        print("pick your own tools ")
 
 
     def print_chess_board(self):
