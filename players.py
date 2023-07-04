@@ -44,14 +44,7 @@ class Players:
                                 elif self.turn == "black":
                                     self.turn = "white"
                                     break
-                            else:
-                                print("wrong coordination you can't perform this action")
-                        else:
-                            print("wrong  coordination You must choose your own tools ")
-                    else:
-                        print("wrong  coordination the second square you pick isn't on board")
-                else:
-                    print("wrong  coordination the first square you pick isn't on board")
+
             # else:
             #     location_king = print('Enter the king position')
             #     if location_king == 'a5':
