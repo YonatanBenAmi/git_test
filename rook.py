@@ -32,7 +32,6 @@ class Rook(ChessCharacter):
             else:
                 jmp_row = 1
 
-
         elif d_row == 0 and d_col > 0:
             if col1 > col2:
                 jmp_steps = -1
@@ -52,4 +51,4 @@ class Rook(ChessCharacter):
                     return False
 
             return True
-
+        return False

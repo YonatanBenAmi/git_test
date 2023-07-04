@@ -1,6 +1,5 @@
 from chess_bord import Chess_board
 from tav import Tav
-from rook import  Rook
 
 
 class Players:
@@ -64,8 +63,9 @@ class Players:
             print(*self.chess_board[col])
         print()
 
-
-
+    from pawn import Pawn
+    def is_end_game(self):
+        pass
 # a = Players()
 # a.map_location()
 # print(a.map_squrs)
