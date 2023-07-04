@@ -36,25 +36,5 @@ class Bishop(ChessCharacter):
                     return False
                 steps_row += jmp_row
                 steps_col += jmp_col
+            return True
 
-            return True
-        elif d_row == 0 and d_col > 0:
-            if col1 > col2:
-                jmp_steps = -1
-            else:
-                jmp_steps = 1
-            for check in range(col1 + jmp_steps, col2, jmp_steps):
-                if board[row1][check].color != chr(11055):
-                    return False
-            return True
-        elif d_col == 0 and d_row > 0:
-            if row1 > row2:
-                jmp_steps = -1
-            else:
-                jmp_steps = 1
-            for check in range(row1 + jmp_steps, row2, jmp_steps):
-                if board[check][col1].color != chr(11055):
-                    return False
-
-            return True
-        return False
