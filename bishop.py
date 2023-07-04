@@ -37,4 +37,4 @@ class Bishop(ChessCharacter):
                 steps_row += jmp_row
                 steps_col += jmp_col
             return True
-
+        return False
