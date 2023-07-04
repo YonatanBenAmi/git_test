@@ -1,5 +1,6 @@
 from chess_bord import Chess_board
 from tav import Tav
+from rook import  Rook
 
 
 class Players:
@@ -33,23 +34,24 @@ class Players:
                     white_characters = ['♟', '♞', '♝', '♜', '♛', '♚']
                     if (self.turn == "white" and self.chess_board[a[0]][a[1]].color in white_characters)\
                          or (self.turn == "black" and self.chess_board[a[0]][a[1]].color in black_characters):
-                        if self.chess_board[a[0]][a[1]].check_steps(a[0], a[1], b[0], b[1], self.chess_board):
-                            self.chess_board[int(b[0])][int(b[1])] = self.chess_board[int(a[0])][int(a[1])]
-                            self.chess_board[int(a[0])][int(a[1])] = Tav(chr(11055))
-                            if self.turn == "white":
-                                self.turn = "black"
-                                break
-                            elif self.turn == "black":
-                                self.turn = "white"
-                                break
+
+                            if self.chess_board[a[0]][a[1]].check_steps(a[0], a[1], b[0], b[1], self.chess_board):
+                                self.chess_board[int(b[0])][int(b[1])] = self.chess_board[int(a[0])][int(a[1])]
+                                self.chess_board[int(a[0])][int(a[1])] = Tav(chr(11055))
+                                if self.turn == "white":
+                                    self.turn = "black"
+                                    break
+                                elif self.turn == "black":
+                                    self.turn = "white"
+                                    break
+                            else:
+                                print("wrong coordination you can't perform this action")
                         else:
-                            print("wrong coordination you can't perform this action")
+                            print("wrong  coordination You must choose your own tools ")
                     else:
-                        print("wrong  coordination You must choose your own tools ")
+                        print("wrong  coordination the second square you pick isn't on board")
                 else:
-                    print("wrong  coordination the second square you pick isn't on board")
-            else:
-                print("wrong  coordination the first square you pick isn't on board")
+                    print("wrong  coordination the first square you pick isn't on board")
             # else:
             #     location_king = print('Enter the king position')
             #     if location_king == 'a5':
@@ -63,10 +65,35 @@ class Players:
             print(*self.chess_board[col])
         print()
 
-    from pawn import Pawn
-    def is_end_game(self):
-        pass
-# a = Players()
+    # def king_threat(self, board):
+    #     flag = False
+    #     for row in range(len(board)):
+    #         for col in range(len(row)):
+    #             if self.turn == "white":
+    #                 if board[row][col].color == '♚':
+    #                     king = board[row][col]
+    #                     row1 = row
+    #                     col1 = col
+    #                     flag == True
+    #                     break
+    #             if self.turn == "black":
+    #                 if board[row][col].color == '♔':
+    #                     king = board[row][col]
+    #                     row1 = row
+    #                     col1 = col
+    #                     flag == True
+    #                     break
+    #         if flag:
+    #             break
+    #     for row in range(len(board)):
+    #         for col in range(len(row)):
+    #             if board[row][col].check_steps(row, col,  )
+    #
+    #
+
+
+
+    # a = Players()
 # a.map_location()
 # print(a.map_squrs)
 # a.move_chess_board()
