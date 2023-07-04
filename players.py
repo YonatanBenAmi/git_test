@@ -72,31 +72,30 @@ class Players:
         pass
 
     def king_threat(self):
-        return True
-        # flag = False
-        # for row in range(1,len(self.chess_board)):
-        #     for col in range(1,len(self.chess_board[row])):
-        #         if self.turn == "white":
-        #             if self.chess_board[row][col].color == '♚':
-        #                 king = self.chess_board[row][col]
-        #                 row1 = row
-        #                 col1 = col
-        #                 flag == True
-        #                 break
-        #         if self.turn == "black":
-        #             if self.chess_board[row][col].color == '♔':
-        #                 king = self.chess_board[row][col]
-        #                 row1 = row
-        #                 col1 = col
-        #                 flag == True
-        #                 break
-        #     if flag:
-        #         break
-        # for row in range(1,len(self.chess_board)):
-        #     for col in range(1,len(self.chess_board[row])):
-        #         if self.chess_board[row][col].check_steps(row, col, row1, col1,self.chess_board):
-        #             return False
-        # return True
+        flag = False
+        for row in range(1,len(self.chess_board)):
+            for col in range(1,len(self.chess_board[row])):
+                if self.turn == "white":
+                    if self.chess_board[row][col].color == '♚':
+                        king = self.chess_board[row][col]
+                        row1 = row
+                        col1 = col
+                        flag == True
+                        break
+                if self.turn == "black":
+                    if self.chess_board[row][col].color == '♔':
+                        king = self.chess_board[row][col]
+                        row1 = row
+                        col1 = col
+                        flag == True
+                        break
+            if flag:
+                break
+        for row in range(1,len(self.chess_board)):
+            for col in range(1,len(self.chess_board[row])):
+                if self.chess_board[row][col].check_steps(row, col, row1, col1,self.chess_board):
+                    return True
+        return False
 
 
 
