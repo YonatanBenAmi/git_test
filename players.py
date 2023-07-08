@@ -32,7 +32,7 @@ class Players:
                     white_characters = ['♟', '♞', '♝', '♜', '♛', '♚']
                     if (self.turn == "white" and self.chess_board[a[0]][a[1]].color in white_characters)\
                          or (self.turn == "black" and self.chess_board[a[0]][a[1]].color in black_characters):
-                            if self.king_threat():
+                            if  not self.king_threat():
                                 if self.chess_board[a[0]][a[1]].check_steps(a[0], a[1], b[0], b[1], self.chess_board):
                                     self.chess_board[int(b[0])][int(b[1])] = self.chess_board[int(a[0])][int(a[1])]
                                     self.chess_board[int(a[0])][int(a[1])] = Tav(chr(11055))
@@ -52,7 +52,7 @@ class Players:
                                     c = self.chess_board[int(b[0])][int(b[1])]
                                     self.chess_board[int(b[0])][int(b[1])] = self.chess_board[int(a[0])][int(a[1])]
                                     self.chess_board[int(a[0])][int(a[1])] = Tav(chr(11055))
-                                    if self.king_threat() == True:
+                                    if self.king_threat() == False:
                                         if self.turn == "white":
                                             self.turn = "black"
                                             break
@@ -76,29 +76,44 @@ class Players:
         pass
 
     def king_threat(self):
-        flag = False
-        for row in range(1,len(self.chess_board)):
-            for col in range(1,len(self.chess_board[row])):
-                if self.turn == "white":
-                    if self.chess_board[row][col].color == '♚':
-                        king = self.chess_board[row][col]
-                        row1 = row
-                        col1 = col
-                        flag == True
-                        break
-                if self.turn == "black":
-                    if self.chess_board[row][col].color == '♔':
-                        king = self.chess_board[row][col]
-                        row1 = row
-                        col1 = col
-                        flag == True
-                        break
-            if flag:
-                break
-        for row in range(1,len(self.chess_board)):
-            for col in range(1,len(self.chess_board[row])):
-                if self.chess_board[row][col].check_steps(row, col, row1, col1,self.chess_board):
-                    return True
+        # black_characters = ['♙', '♘', '♗', '♖', '♕', '♔']
+        # white_characters = ['♟', '♞', '♝', '♜', '♛', '♚']
+        #
+        # if self.turn == "white":
+        #     row_king = 0
+        #     col_king = 0
+        #     for row in range(1, len(board)):
+        #         for col in range(1, len(board[row])):
+        #             if board[row][col].color == '♚':
+        #                row_king = row
+        #                col_king = col
+        #                break
+        #         if row_king + col_king == 0:
+        #             break
+        #
+        #     for row in range(1, len(board)):
+        #         for col in range(1, len(board[row])):
+        #             if board[row][col].color in black_characters:
+        #                 if board[row][col].check_steps(row, col, row_king, col_king, board):
+        #                     return True
+        # else:
+        #     row_king = 0
+        #     col_king = 0
+        #     for row in range(1, len(board)):
+        #         for col in range(1, len(board[row])):
+        #             if board[row][col].color == '♔':
+        #                 row_king = row
+        #                 col_king = col
+        #                 break
+        #         if row_king + col_king == 0:
+        #             break
+        #
+        #
+        #         for row in range(1, len(board)):
+        #             for col in range(1, len(board[row])):
+        #                 if board[row][col].color in white_characters:
+        #                     if board[row][col].check_steps(row, col, row_king, col_king, board):
+        #                         return True
         return False
 
 

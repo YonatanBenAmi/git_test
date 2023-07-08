@@ -27,9 +27,9 @@ class King(ChessCharacter):
                 for row in range(1, len(board)):
                     for col in range(1, len(board[row])):
                         if board[row][col].color in black_characters:
-                            print(board[row][col].color,board[row][col].check_steps(row, col, row2, col2, board))
+
                             if board[row][col].check_steps(row, col, row2, col2, board):
-                                print(board[row][col],board[row][col].check_steps(row, col, row2, col2, board))
+
                                 return False
                 self._status_move = True
                 return True
@@ -39,9 +39,9 @@ class King(ChessCharacter):
                 for row in range(1, len(board)):
                     for col in range(1, len(board[row])):
                         if board[row][col].color in white_characters:
-                            print(board[row][col].color, board[row][col].check_steps(row, col, row2, col2, board))
+
                             if board[row][col].check_steps(row, col, row2, col2, board):
-                                print(board[row][col], board[row][col].check_steps(row, col, row2, col2, board))
+
                                 return False
                 self._status_move = True
                 return True
